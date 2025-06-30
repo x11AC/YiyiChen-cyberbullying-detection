@@ -1,0 +1,6 @@
+pandas
+scikit-learn
+nltk
+tpot
+numpy
+tqdm

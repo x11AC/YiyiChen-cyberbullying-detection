@@ -1,0 +1,81 @@
+2025-06-30 10:09:06,418 - INFO - Loading data from local file
+2025-06-30 10:09:06,421 - INFO - Loaded 676 records
+2025-06-30 10:09:06,422 - INFO - Raw data sample:
+                                                                                                                                               text
+0                                                                    {'Imagine how many have done this already and got away with entering ': False,
+1                          JW filed a FOIA lawsuit against State Treasury seeking answers on Obama Admin's $400 million cash pymt to Iran. : False,
+2                                                      'I am curious as to how many priests impregnanted young girls and used abortion to ': False,
+3                                                      'Should read blames Obama, diminishes the intelligence community and slams CNN and ': False,
+4                                                                                  'Global Payroll Specialist Assistant Manager, Dublin - ': False,
+5                                                                              'White gay: but I thought the b in lgbt stands for babadook ': True,
+6                       'Dear you - your husband worked the rescue boats in the Med. Plse may we chat off record katie@katiehopkins.co.uk ': False,
+7                                                 'They were conducted by two priests to a bench placed in front of the house in the open ': False,
+8  'No body can convince me that Barak Hussein Obama was working to weaken America since his ideology is well known and it is compared to ': False,
+9                                                   'Trump: Obama Knew About Election Meddling Back In Early August And Did Nothi (pls ️️ ': False,
+2025-06-30 10:09:06,422 - INFO - Parsing text and label
+2025-06-30 10:09:06,463 - INFO - Parsed data sample:
+                                                                                                                                    text  label
+0                                                                   {'Imagine how many have done this already and got away with entering  False
+1                        JW filed a FOIA lawsuit against State Treasury seeking answers on Obama Admin's $400 million cash pymt to Iran.  False
+2                                                      I am curious as to how many priests impregnanted young girls and used abortion to  False
+3                                                      Should read blames Obama, diminishes the intelligence community and slams CNN and  False
+4                                                                                  Global Payroll Specialist Assistant Manager, Dublin -  False
+5                                                                             White gay: but I thought the b in lgbt stands for babadook   True
+6                       Dear you - your husband worked the rescue boats in the Med. Plse may we chat off record katie@katiehopkins.co.uk  False
+7                                                 They were conducted by two priests to a bench placed in front of the house in the open  False
+8  No body can convince me that Barak Hussein Obama was working to weaken America since his ideology is well known and it is compared to  False
+9                                                   Trump: Obama Knew About Election Meddling Back In Early August And Did Nothi (pls ️️  False
+2025-06-30 10:09:06,463 - INFO - Missing values:
+text     0
+label    0
+2025-06-30 10:09:06,463 - INFO - Starting text cleaning
+2025-06-30 10:09:08,186 - INFO - Text cleaning completed
+2025-06-30 10:09:08,187 - INFO - After cleaning, 673 records remain
+2025-06-30 10:09:08,187 - INFO - Splitting data into train/test sets
+2025-06-30 10:09:08,188 - INFO - Training set size: 538, Test set size: 135
+2025-06-30 10:09:08,188 - INFO - Extracting TF-IDF features
+2025-06-30 10:09:08,196 - INFO - Feature extraction completed
+2025-06-30 10:09:08,196 - INFO - Starting baseline SVM training (RBF kernel)
+2025-06-30 10:09:08,747 - INFO - Baseline SVM training completed in 0.55 seconds
+2025-06-30 10:09:08,794 - INFO - Baseline SVM (RBF Kernel) Classification Report:
+2025-06-30 10:09:08,797 - INFO - Baseline SVM (RBF Kernel) Confusion Matrix:
+2025-06-30 10:09:08,798 - INFO - Starting TPOT optimization
+2025-06-30 10:11:26,784 - WARNING - Code block execution exceeded 10 seconds timeout
+Traceback (most recent call last):
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\stopit\utils.py", line 145, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\tpot\decorators.py", line 57, in time_limited_call
+    func(*args)
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\pipeline.py", line 662, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_forest.py", line 487, in fit
+    trees = Parallel(
+            ^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\parallel.py", line 77, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\joblib\parallel.py", line 1918, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\joblib\parallel.py", line 1847, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\parallel.py", line 139, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_forest.py", line 189, in _parallel_build_trees
+    tree._fit(
+  File "D:\Users\18501\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\tree\_classes.py", line 472, in _fit
+    builder.build(self.tree_, X, y, sample_weight, missing_values_in_feature_mask)
+stopit.utils.TimeoutException
+2025-06-30 10:12:27,583 - INFO - TPOT optimization completed in 198.78 seconds
+2025-06-30 10:12:27,584 - INFO - TPOT-Optimized Model Classification Report:
+2025-06-30 10:12:27,588 - INFO - TPOT-Optimized Model Confusion Matrix:
+2025-06-30 10:12:27,589 - INFO - TPOT pipeline exported to 'tpot_cyberbullying_pipeline_rbf.py'
